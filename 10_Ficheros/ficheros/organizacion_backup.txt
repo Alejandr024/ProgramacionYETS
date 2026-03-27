@@ -1,0 +1,4 @@
+Taro Sakamoto::18::5::true
+Shin Asakura::10::8::false
+Lu Xiaotang::6::9::true
+Heisuke Mashimo::10::10::false
