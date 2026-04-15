@@ -1,0 +1,119 @@
+@startuml
+
+' Alejandro Miguel Gomez Gonzalez, 1ºDAW
+
+
+'Clases
+abstract class Personaje #FADBD8 {
+    # nombre:String
+    # nivel: int
+    + atacar(): void
+}
+
+class Guerrero #EBF5FB{
+    - pais: String
+    + unirseAGremio():void
+    + esquivarObstaculo():void
+    + obtenerArmaPesada():void
+    + usarArmaPesada(int nivel): int
+}
+
+class Mago #EBF5FB {
+    + rolMago: String
+    + prepararHechizo(String nombre, int nivel, String uso): Hechizo
+    + usarHechizo(Hechizo hechizo): void
+    + esquivarObstaculo():void
+}
+
+class Obstaculo #EBF5FB{
+    + nombre: String
+    + moverObstaculo(): void
+}
+
+class CuerpoFisico #EBF5FB{
+    - altura: double
+    - masa: double
+    + calcularHitbox(double altura, double masa): duble
+}
+
+class Gremio #EBF5FB{
+    - Guerreros: Guerrero[]
+    + nombreGremio: String
+    + aceptarGuerrero(): boolean
+}
+
+class Hechizo #EBF5FB{
+    - nombre: String
+    - nivel: int
+    - uso: String
+    + poteciarHechizo(int nivel):int
+}
+
+'Interfaces
+
+interface Atacable #E8F8F5{
+    + void recibirDamage(int cantidad)
+}
+
+'Conexiones
+
+'Herencia
+Guerrero -up-|> Personaje: "Extiende"
+Mago -down-|> Personaje: "Extiende"
+
+'Implementacion
+Personaje .|> Atacable: "Implementa"
+Obstaculo .down.|> Atacable: "Implementa"
+
+'Composicion
+Personaje *-- CuerpoFisico: "Contiene"
+
+'Asociacion y Multiplicidad
+Personaje "1" --- "1..*" Gremio: "Agrupa"
+
+'Dependencia
+Mago .up..> Hechizo: "Usa"
+
+' Notas
+
+note bottom of Guerrero #D1F2EB
+El Guerrero recibe un +10
+de bonificacion si ataca con armas
+pesadas
+end note
+
+note bottom of Hechizo #FCF3CF
+Objeto que usa el Mago, ya sea para 
+curase o para atacar
+end note
+
+note left of Personaje #FADBD8
+Clase abstracta, que es universal para todos 
+los persoanaje del rol
+end note
+
+note right of Atacable #FADBD8
+Comportamiento de los perosnajes y 
+objetos fisicos para recibir ataques
+end note
+
+note bottom of Gremio #FCF3CF
+Conjunto de guerreros que defienden segun sus
+intereses, ya sean individuales o colectivos
+end note
+
+note bottom of CuerpoFisico #D1F2EB
+Es la hitbox de los personajes del rol
+end note
+
+note left of Mago #D1F2EB
+Puede crear y usar hechizos, dependiendo de su rol,
+puede atacar o curar
+end note
+
+note top of Obstaculo #FCF3CF
+Evita que lo personajes puedan 
+pasar por un sitio en concreto
+end note
+
+@enduml

@@ -1,6 +1,6 @@
 @startuml
 
-class Biblioteca{
+class Biblioteca {
     + String nombre
     + String direccion
     + List<Libro> libros
@@ -12,28 +12,26 @@ class Biblioteca{
     + Libro buscarLibro(String isbn)
 }
 
-
-
-abstract class Usuario{
+abstract class Usuario {
     - int id
     - String nombre
     - String email
     - List<Prestamo> prestamos
-    + Prestamo solicitarPrestamo(Libro libro)
+    + void solicitarPrestamo(Libro libro)
     + void devolverLibro(Prestamo prestamo)
 }
 
-class Estudiante extends Usuario{
+class Estudiante {
     - String carrera
     - int semestre
 }
 
-class Profesor extends Usuario{
+class Profesor {
     - String departamento
     - String tituloAcademico
 }
 
-class Libro{
+class Libro {
     + String isbn
     + String titulo
     + int anioPublicacion
@@ -45,7 +43,7 @@ class Libro{
     + void marcarComoDisponible()
 }
 
-class Autor{
+class Autor {
     + int idAutor
     + String nombre
     + String nacionalidad
@@ -53,13 +51,11 @@ class Autor{
     + void agregarLibro(Libro libro)
 }
 
-class Prestamo{
+class Prestamo {
     - int idPrestamo
     - Date fechaInicio
     - Date fechaDevolucionEstimada
     - Date fechaDevolucionReal
-    - Usuario usuario
-    - Libro libro
     - boolean activo
     + void cerrarPrestamo()
     + boolean estaVencido()
@@ -67,10 +63,11 @@ class Prestamo{
 
 Usuario <|-- Estudiante
 Usuario <|-- Profesor
-Biblioteca o-- "0..*" Libro : Contiene
-Libro "1..*" -- "1..*" Autor  : Escribe
-Usuario "1" -- "0..*"  Prestamo: Contiene
-Prestamo "1" -- "1" Libro: Contiene
+Biblioteca o-- "0..*" Libro
 Biblioteca o-- "0..*" Usuario
 Biblioteca o-- "0..*" Prestamo
+Usuario "1" -- "0..*" Prestamo
+Prestamo "1" -- "1" Libro
+Libro "*" -- "*" Autor
+
 @enduml

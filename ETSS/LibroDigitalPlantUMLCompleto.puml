@@ -1,0 +1,83 @@
+@startuml
+
+' --- CONFIGURACIÓN DE ESTILO GLOBAL ---
+skinparam shadowing false
+skinparam roundcorner 8
+skinparam class {
+    ArrowColor #2C3E50
+    BorderThickness 1.5
+}
+
+' --- DEFINICIÓN DE INTERFACES (Verde suave) ---
+interface Libro #E8F8F5 {
+    + {abstract} verPresentacion(): void
+}
+
+interface Digital #E8F8F5 {
+    + {abstract} descargar(): void
+    + {abstract} comentar(comentario: String): void
+}
+
+' --- DEFINICIÓN DE CLASES ---
+
+' Clases Físicas (Azul claro)
+class LibroFisico #EBF5FB {
+    - codigo: String
+    - titulo: String
+    + verPresentacion(): void
+}
+
+class LibroDigitalizado #EBF5FB {
+    - enlace: String
+    + descargar(): void
+    + comentar(String): void
+}
+
+' Clases de Gestión (Amarillo/Naranja suave)
+class Biblioteca #FEF9E7 {
+    - nombre: String
+    + añadirLibro(LibroFisico): void
+    + mostrarCatalogo(): void
+}
+
+' Clase Principal (Rojo suave)
+class Main #FDEDEC {
+    + {static} main(args: String[]): void
+}
+
+' --- NOTAS DE COLORES ---
+
+note right of Digital #D1F2EB
+  **Interfaz Digital**:
+  Define métodos para
+  entornos virtuales.
+end note
+
+note bottom of LibroDigitalizado #FADBD8
+  **Herencia Mixta**:
+  Extiende de LibroFisico
+  e Implementa Digital.
+end note
+
+note top of Main #FCF3CF
+  **Punto de entrada**:
+  Coordina la creación de
+  objetos y la Biblioteca.
+end note
+
+' --- RELACIONES Y LAYOUT ---
+
+' Jerarquía de Libros (Hacia arriba)
+Digital -up-|> Libro : "extiende"
+LibroFisico .up.|> Libro : "implementa"
+LibroDigitalizado -up-|> LibroFisico : "hereda"
+LibroDigitalizado .up.|> Digital : "implementa"
+
+' Relación de Agregación (Biblioteca contiene Libros)
+Biblioteca "1" o-down- "0..*" LibroFisico : "almacena >"
+
+' Relaciones de Dependencia (El Main usa las clases)
+Main .down.> Biblioteca : "gestiona"
+Main .right.> LibroDigitalizado : "instancia"
+
+@enduml

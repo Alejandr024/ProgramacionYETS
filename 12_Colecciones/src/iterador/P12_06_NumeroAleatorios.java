@@ -28,22 +28,25 @@ public class P12_06_NumeroAleatorios {
         }
         System.out.println("Numeros antes de eliminar el 5: " + enteros);
 
-        while (enteros.remove(5)) {
-
-        }
-        System.out.println("Numeros despues de eliminar el 5: " + enteros);
+        int contador=0;
+        
+//        while (enteros.remove(5)) {
+//            contador++;
+//        }
+//        System.out.println("Numeros despues de eliminar el 5: " + enteros +". Ha eliminado "+ contador + " veces el 5.");
 
         //con el It
-        Iterator<Integer> enterosIt = enteros.iterator();
 
-//        while(enterosIt.hasNext()){
-//            int number= enterosIt.next();
-//            if(number==5){
-//                enterosIt.remove();
-//            }
-//        }
-//        
-//        System.out.println("Con el it: " + enteros);
+        int contadorIt=0;
+        
+        for(Iterator<Integer> it= enteros.iterator(); it.hasNext();){// hay que reiniciar el programa para que funcione
+            if(it.next()==5){
+                it.remove();
+                contadorIt++;
+            }
+        }
+        
+        System.out.println("Con el it: " + enteros + ". Se han eliminador " + contadorIt + " veces el 5.");
     }//end main
 
 }//end class
