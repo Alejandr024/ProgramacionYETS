@@ -1,0 +1,10 @@
+Toyota::Camry::2020::210.0
+Honda::Civic::2018::220.3
+Ford::Mustang::2022::250.4
+BMW::Serie 3::2019::240.5
+Audi::A4::2021::230.0
+Mercedes::C-Class::2020::235
+Volkswagen::Golf::2017::200.5
+Hyundai::Elantra::2019::215.6
+Nissan::Altima::2021::225.7
+Chevrolet::Malibu::2018::210.5
