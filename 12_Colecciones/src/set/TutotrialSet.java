@@ -15,7 +15,7 @@ public class TutotrialSet {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // Instancio un conjunto Hash y le añado objetos
+        // Instancio un conjunto Hash y le agrego objetos
         HashSet<Integer> conjuntoHash = new HashSet<>();
         conjuntoHash.add(7);
         conjuntoHash.add(5);
@@ -31,23 +31,23 @@ public class TutotrialSet {
         System.out.println("Nº elementos de conjuntoHash: " + conjuntoHash.size());
     //2. boolean isEmpty()
         System.out.println("\n2 boolean isEmpty():");
-        System.out.println("¿Está vacío conjuntoHash?: " + conjuntoHash.isEmpty());
+        System.out.println("Esta vaci�o conjuntoHash?: " + conjuntoHash.isEmpty());
     //3. boolean contains(Object element)
         System.out.println("\n3. boolean contains(Object element):");
-        System.out.println("¿Contiene  el 7 conjuntoHash?: " + conjuntoHash.contains(7));
+        System.out.println("Contiene el 7 conjuntoHash?: " + conjuntoHash.contains(7));
     //4. boolean add(E element)
         System.out.println("\n4. boolean add():");
-        System.out.println("¿Añado el 7 a conjuntoHash?: " + conjuntoHash.add(7));
-        //Como ya está devuelve un false
-        System.out.println("¿Añado el 9 a conjuntoHash?: " + conjuntoHash.add(9));
-        //Como no está devuelve un true
+        System.out.println("Agregado el 7 a conjuntoHash?: " + conjuntoHash.add(7));
+        //Como ya esta devuelve un false
+        System.out.println("Agregado el 9 a conjuntoHash?: " + conjuntoHash.add(9));
+        //Como no esta devuelve un true
         System.out.println(conjuntoHash);
     //5. boolean remove(Object element)
         System.out.println("\n5. Iterator (boolean remove):");
-        System.out.println("¿Elimino el 11 de conjuntoHash?: " + conjuntoHash.remove(11));
+        System.out.println("Elimino el 11 de conjuntoHash?: " + conjuntoHash.remove(11));
         //Como no lo encuentra devuelve un false
-        System.out.println("¿Elimino el 9 de conjuntoHash?: " + conjuntoHash.remove(9));
-        //Como S�? lo encuentra devuelve un true y lo elimina del conjunto
+        System.out.println("Elimino el 9 de conjuntoHash?: " + conjuntoHash.remove(9));
+        //Como Si lo encuentra devuelve un true y lo elimina del conjunto
         System.out.println(conjuntoHash);
     //6. Iterator<E>1terator()
         System.out.println("\n\n6a. Iterator (while):");
@@ -171,7 +171,7 @@ public class TutotrialSet {
             }
         };
         Arrays.sort(tablaClientes, ordenaNombre.reversed());
-        System.out.println("Array de clientes ordenado (por nombre orden alfabético inverso):\n " + Arrays.deepToString(tablaClientes));
+        System.out.println("Array de clientes ordenado (por nombre orden alfabetico inverso):\n " + Arrays.deepToString(tablaClientes));
        
         // Para ordenar por un criterio distinto al natural creamos una clase comparator (por EDAD)
         Comparator<Cliente> ordenaEdad = new Comparator<>() {

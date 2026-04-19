@@ -37,11 +37,50 @@ public class Contenedor<T> {
 
         objetos = arrayAux;
     }
+
+    void extraerDelFinal() {
+        eliminar(objetos.length);
+    }
+
+//    T extraerDelFinal() {
+//        T res = null;
+//        if (objetos.length > 0) {
+//            res = objetos[objetos.length - 1];
+//            objetos = Arrays.copyOf(objetos, objetos.length - 1);
+//        }
+//        return res;
+//    }
+    // Método eliminar un valor de una posición (Método adaptado de Lista)
     
+    T eliminar(int indice) {
+        T eliminado = null;
+        if (indice >= 0 && indice < objetos.length) {
+            eliminado = objetos[indice];
+            for (int i = indice + 1; i < objetos.length; i++) {
+                objetos[i - 1] = objetos[i];
+            }
+            objetos = Arrays.copyOf(objetos, objetos.length - 1);
+        }
+        return eliminado;
+    }
+
+    T extraerDelPrincipio() {
+        return eliminar(0);
+
+    }
+
+//    T extraerDelPrincipio() {
+//        T res = null;
+//        if (objetos.length > 0) {
+//            res = objetos[0];
+//            objetos = Arrays.copyOfRange(objetos, 1, objetos.length);
+//        }
+//        return res;
+//    }
     
-    
-    
-    
+    void ordenar() {
+        Arrays.sort(objetos);
+    }
 
     /**
      * @return the objetos
