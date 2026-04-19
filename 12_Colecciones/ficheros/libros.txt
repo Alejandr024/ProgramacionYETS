@@ -1,0 +1,8 @@
+9788497592208;Cien años de soledad;Gabriel Garcia Marquez;19.95
+9788408172178;La sombra del viento;Carlos Ruiz Zafon;14.50
+9788466339873;El nombre del viento;Patrick Rothfuss;22.00
+9788498383621;El codigo Da Vinci;Dan Brown;12.75
+9780307474278;Los juegos del hambre;Suzanne Collins;15.30
+9788413140475;Reina Roja;Juan Gomez Jurado;18.40
+9788408208068;Patria;Fernando Aramburu;16.90
+9788490626315;La chica del tren;Paula Hawkins;13.60
