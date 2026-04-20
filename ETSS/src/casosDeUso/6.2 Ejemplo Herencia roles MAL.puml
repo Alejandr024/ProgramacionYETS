@@ -1,0 +1,45 @@
+@startuml
+left to right direction
+skinparam packageStyle rectangle
+
+' TÍTULO CLARO PARA QUE NO HAYA CONFUSIÓN
+title "EJEMPLO MAL HECHO (Antipatrón) - IGNORANDO LA HERENCIA"
+
+' Definición de los actores y colores para rastreo visual
+actor "Personal Administrativo" as Admin #LightBlue
+actor "Médico" as Medico #LightGreen
+actor "Director Médico" as Director #Orange
+
+package "Sistema Hospitalario" {
+    usecase "Crear/Cancelar Cita" as CU01 #F0F8FF
+    usecase "Consultar Citas" as CU02 #F0F8FF
+    
+    usecase "Gestionar Historial Clínico" as CU03 #E0FFF0
+    
+    usecase "Generar Informes Estadísticos" as CU04 #FFFBEA
+}
+
+' --- RELACIONES ACTOR -> CASO DE USO (SIN HERENCIA) ---
+' Como ignoramos la herencia, debemos conectar manualmente a CADA ACTOR
+' a CADA CASO DE USO para el que tiene permisos. ¡Ojo al caos!
+
+' --- Conexiones del Personal Administrativo (Fácil) ---
+Admin --> CU01
+Admin --> CU02
+
+' --- Conexiones del Médico (Empieza el problema) ---
+' Tenemos que volver a conectar al Médico a los CUs Administrativos
+' y luego a su CU exclusivo.
+Medico --> CU01
+Medico --> CU02
+Medico --> CU03
+
+' --- Conexiones del Director Médico (El Caos Total) ---
+' El Director tiene TODOS los permisos, así que lo conectamos a TODO.
+' Esto duplica las líneas del Administrativo, las del Médico y añade la suya.
+Director --> CU01
+Director --> CU02
+Director --> CU03
+Director --> CU04
+
+@enduml

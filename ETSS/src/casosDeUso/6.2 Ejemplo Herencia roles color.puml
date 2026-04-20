@@ -1,0 +1,46 @@
+@startuml
+left to right direction
+skinparam packageStyle rectangle
+
+' TÍTULO CLARO PARA EL EJEMPLO CORRECTO
+title "EJEMPLO BIEN HECHO (Haciendo uso de la Herencia) - MISMO ESCENARIO"
+
+' Definición de los actores con sus colores originales
+actor "Personal Administrativo" as Admin #LightBlue
+actor "Médico" as Medico #LightGreen
+actor "Director Médico" as Director #Orange
+
+package "Sistema Hospitalario" {
+    usecase "Crear/Cancelar Cita" as CU01 #F0F8FF
+    usecase "Consultar Citas" as CU02 #F0F8FF
+    
+    usecase "Gestionar Historial Clínico" as CU03 #E0FFF0
+    
+    usecase "Generar Informes Estadísticos" as CU04 #FFFBEA
+}
+
+' --- RELACIONES DE HERENCIA (GENERALIZACIÓN) - ¡Aquí está la clave! ---
+' Definimos que un Médico <|-- Es un Personal Administrativo
+Admin <|-- Medico : Es un
+
+' Definimos que un Director Médico <|-- Es un Médico
+Medico <|-- Director : Es un
+
+
+' --- RELACIONES ACTOR -> CASO DE USO ---
+' Solo conectamos a cada actor con sus permisos EXCLUSIVOS.
+' La herencia se encarga de que los permisos 'fluyan hacia abajo'.
+
+' Conectamos al Personal Administrativo (Padre) con los CUs de citas
+Admin --> CU01
+Admin --> CU02
+
+' Conectamos al Médico (Hijo) SOLO con su CU exclusivo.
+' (Automáticamente hereda las conexiones a CU01 y CU02 de Admin)
+Medico --> CU03
+
+' Conectamos al Director (Nieto) SOLO con su CU exclusivo.
+' (Automáticamente hereda CU03 de Medico, y CU01 y CU02 de Admin)
+Director --> CU04
+
+@enduml
