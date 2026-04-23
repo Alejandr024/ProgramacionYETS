@@ -1,0 +1,25 @@
+@startuml
+left to right direction
+actor Usuario #LightBlue
+
+package "Agenda Excompañeros/as" {
+    usecase "Agregar Excompañero/a" as CU01 #LightYellow
+    usecase "Consultar Excompañero/a" as CU02 #LightGray
+    usecase "Agregar Cena" as CU03 #Orange
+    usecase "Eliminar Cena" as CU04 #pink
+    usecase "Consultar cena" as CU05 #LightGreen
+    usecase "Agregar asistente" as CU06 #LightBlue
+    usecase "Eliminar asistente" as CU07 #red
+    usecase "Consultar asistente" as CU08 #Cyan
+}
+
+ Usuario -- CU01
+ Usuario -- CU02
+ Usuario -- CU03
+ Usuario -- CU04
+ Usuario -- CU05
+ Usuario -- CU06
+ Usuario -- CU07
+ Usuario -- CU08
+
+@enduml
