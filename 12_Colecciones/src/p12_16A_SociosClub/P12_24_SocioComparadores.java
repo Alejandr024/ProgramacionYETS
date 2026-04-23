@@ -1,14 +1,13 @@
-package set;
+package p12_16A_SociosClub;
 
 import java.io.*;
 import java.util.*;
-
 
 public class P12_24_SocioComparadores {
 
     public static void main(String[] args) {
         Set<Socio> socios = new TreeSet<>();
-        try ( ObjectInputStream in = new ObjectInputStream(
+        try (ObjectInputStream in = new ObjectInputStream(
                 new FileInputStream("socios.dat"))) {
             socios = (TreeSet<Socio>) in.readObject();
         } catch (IOException ex) {
@@ -32,7 +31,7 @@ public class P12_24_SocioComparadores {
                         System.out.println("El socio ya existe");
                     }
                     System.out.println(socios);
-                    
+
                 }
                 case 2 -> {
                     System.out.print("dni socio: ");
@@ -42,7 +41,7 @@ public class P12_24_SocioComparadores {
                     } else {
                         System.out.println("No existe ningún socio con dni:" + dni);
                     }
-                    
+
                 }
                 case 3 -> {
                     System.out.print("dni: ");
@@ -57,7 +56,7 @@ public class P12_24_SocioComparadores {
 //                            return o1.nombre.compareTo(o2.nombre);
 //                        }
 //                    };
-                    Comparator<Socio> comparaNombres = (Socio s1, Socio s2) -> s1.nombre.compareTo(s2.nombre);   
+                    Comparator<Socio> comparaNombres = (Socio s1, Socio s2) -> s1.nombre.compareTo(s2.nombre);
                     Set<Socio> sociosPorNombre = new TreeSet<>(comparaNombres);
                     sociosPorNombre.addAll(socios);
                     System.out.println(sociosPorNombre);
@@ -69,20 +68,20 @@ public class P12_24_SocioComparadores {
 //                            return o2.alta - o1.alta;
 //                        }
 //                    };
-                    Comparator<Socio> comparaAntiguedad = (Socio s1, Socio s2) -> Integer.compare(s1.alta, s2.alta);   
+                    Comparator<Socio> comparaAntiguedad = (Socio s1, Socio s2) -> Integer.compare(s1.alta, s2.alta);
                     Set<Socio> sociosPorAntiguedad = new TreeSet<>(comparaAntiguedad);
                     sociosPorAntiguedad.addAll(socios);
                     System.out.println(sociosPorAntiguedad);
                 }
             }
         } while (opcion != 6);
-        try ( ObjectOutputStream out = new ObjectOutputStream(
+        try (ObjectOutputStream out = new ObjectOutputStream(
                 new FileOutputStream("socios.dat"))) {
             out.writeObject(socios);
         } catch (IOException ex) {
             System.out.println(ex);
         }
-    }
+    }//end main
 
     static boolean alta(Set<Socio> socios) {
         System.out.print("dni: ");
@@ -95,4 +94,4 @@ public class P12_24_SocioComparadores {
         return socios.add(nuevo);
     }
 
-}
+}//end class

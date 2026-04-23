@@ -1,7 +1,6 @@
-package set;
+package p12_16A_SociosClub;
 
 import java.io.Serializable;
-
 
 public class Socio implements Comparable<Socio>, Serializable {
 
@@ -15,16 +14,14 @@ public class Socio implements Comparable<Socio>, Serializable {
         this.alta = alta;
     }
 
-        public Socio(String dni) {
+    public Socio(String dni) {
         this.dni = dni;
     }
-    
-    
+
     @Override
     public int compareTo(Socio socio) {
         return dni.compareTo(socio.dni);
     }
-
 
     @Override
     public boolean equals(Object o) {
@@ -33,8 +30,8 @@ public class Socio implements Comparable<Socio>, Serializable {
 
     @Override
     public String toString() {
-        String fechaAlta =  String.valueOf(this.alta);
+        String fechaAlta = String.valueOf(this.alta);
         return "Socio{" + "dni = " + dni + ", nombre=" + nombre
                 + ", Fecha Alta = " + fechaAlta + "}\n";
-    } 
-}
+    }
+}//end class
