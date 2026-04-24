@@ -1,8 +1,10 @@
-9788497592208;Cien años de soledad;Gabriel Garcia Marquez;19.95
-9788408172178;La sombra del viento;Carlos Ruiz Zafon;14.50
-9788466339873;El nombre del viento;Patrick Rothfuss;22.00
-9788498383621;El codigo Da Vinci;Dan Brown;12.75
-9780307474278;Los juegos del hambre;Suzanne Collins;15.30
-9788413140475;Reina Roja;Juan Gomez Jurado;18.40
-9788408208068;Patria;Fernando Aramburu;16.90
-9788490626315;La chica del tren;Paula Hawkins;13.60
+El nombre del viento - Patrick Rothfuss - 2007 - 978.84.01.33609.0 - 880
+Cien años de soledad - Gabriel García Márquez - 1967 - 978.84.376.0494.7 - 471
+1984 - George Orwell - 1949 - 978.0.452.28423.4 - 328
+El señor de los anillos - J.R.R. Tolkien - 1954 - 978.0.618.64015.7 - 1216
+Crimen y castigo - Fiodor Dostoyevski - 1866 - 978.84.9892.084.1 - 656
+Orgullo y prejuicio - Jane Austen - 1813 - 978.84.7669.403.1 - 416
+Los pilares de la Tierra - Ken Follett - 1989 - 78.84.01.38139.6 - 1040
+Las uvas de la ira - John Steinbeck - 1939 - 978.84.670.2927.1 - 512
+El codigo Da Vinci - Dan Brown - 2003 - 978.84.08.03582.1 - 616
+Rayuela - Julio Cortazar - 1963 - 78.84.376.0493.0 - 688
