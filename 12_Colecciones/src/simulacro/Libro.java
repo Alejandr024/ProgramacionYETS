@@ -24,7 +24,7 @@ public class Libro implements Serializable, Comparable<Libro> {
 
     @Override
     public String toString() {
-        return titulo + "\t" + autor + "\t" + year + "\t" + isbn + "\t" + numPages;
+        return String.format("%-50s%-40s%-10d%-50s%-40d",titulo,autor,year,isbn,numPages);
     }
 
     public boolean equal(Libro libro) {

@@ -10,15 +10,15 @@ public class MainAgenda {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        
-    boolean condicion= false;
+        Agenda agenda = new Agenda();
+        boolean condicion = false;
         do {
-            
-            condicion= false;
-            Agenda agenda = new Agenda();
+
+            condicion = false;
+
             agenda.agregar();
-            
-        } while(!condicion);
+
+        } while (!condicion);
 
     }//end main
 

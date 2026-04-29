@@ -18,10 +18,6 @@ public class MainInventario {
         Producto p8 = new Producto("Cámara Web HD", 108, 49.99, 25);
         Producto p9 = new Producto("Auriculares Gamer", 109, 59.99, 18);
         Producto p10 = new Producto("Micrófono Streaming", 104, 79.99, 14);
-
-        System.out.println("Productos ordenados naturalmente: ");
-        
-        
         
         inventario.agregar(p1);
         inventario.agregar(p2);
@@ -33,10 +29,23 @@ public class MainInventario {
         inventario.agregar(p8);
         inventario.agregar(p9);
         inventario.agregar(p10);
-        
-        
+
+
+        System.out.println("Productos ordenados naturalmente: ");
         
         inventario.mostrar();
-       
-    }
-}
+        
+        System.out.println("--------------------------------");
+        System.out.println("Ordenados por precio: ");
+        inventario.ordernarPorPrecio();
+        
+
+        System.out.println("--------------------------------");        
+        System.out.println("Ordenados por nombre: ");
+        inventario.ordernarPorNombre();
+
+        System.out.println("--------------------------------");
+        System.out.println("Reponer Stock");
+        inventario.reponerStock();
+    }//end main
+}//end class

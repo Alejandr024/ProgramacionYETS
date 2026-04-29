@@ -26,13 +26,22 @@ public class Producto implements Comparable<Producto>{
         this.precio = precio;
         this.cantidadEnStock = cantidadEnStock;
     }
+    
+    
+    public boolean equal(Producto producto) {
+        boolean igual = false;
+
+        if (getCodigo() == producto.getCodigo()) {
+            igual = true;
+        }
+
+        return igual;
+    }
 
     @Override
     public String toString() {
-        return nombre + "\t" + codigo + "\t" + precio + "\t" + cantidadEnStock;
+        return String.format("%-10d%-25s(%.2f)\tCantidad: %-30d",codigo,nombre,precio,cantidadEnStock);
     }
-    
-    
   
     @Override
     public int compareTo(Producto o) {
@@ -58,8 +67,8 @@ public class Producto implements Comparable<Producto>{
     /**
      * @param cantidadEnStock the cantidadEnStock to set
      */
-    public void setCantidadEnStock(int cantidadEnStock) {
-        this.cantidadEnStock = cantidadEnStock;
+    public void setCantidadEnStock(int agregarStock) {
+        this.cantidadEnStock = cantidadEnStock + agregarStock;
     }
 
 

@@ -26,7 +26,7 @@ public class Biblioteca implements Serializable {
 
     public void mostrar() {
         System.out.println("Biblioteca: " + getNombre() + " - Ciudad: " + getCiudad());
-        System.out.println("Titutlo\t\tAutor\t\t\tYear\t\tISBN\t\tPaginas");
+        System.out.printf("%-20s                              %-20s                    %-20s%-20s                    %-20s\n", "Titulo","Autor","Year","ISBN","Paginas");
         for (Libro libro : getLibros()) {
             System.out.println(libro);
         }
