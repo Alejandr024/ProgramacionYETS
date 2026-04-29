@@ -27,19 +27,17 @@ public class Libro implements Serializable, Comparable<Libro> {
         return String.format("%-50s%-40s%-10d%-50s%-40d",titulo,autor,year,isbn,numPages);
     }
 
-    public boolean equal(Libro libro) {
-        boolean igual = false;
-
-        if (getIsbn().equals(libro.getIsbn())) {
-            igual = true;
-        }
-
-        return igual;
+    public boolean equals(Libro libro) {
+        if(this == libro) return true;
+        if(libro == null || this.getClass() != libro.getClass()) return false;
+        
+        return this.getIsbn().equals(libro.getIsbn());
+        // return Objects.equals(ibsn,libro.isbn);
     }
 
     @Override
     public int compareTo(Libro libro) {
-        return getTitulo().compareTo(libro.getTitulo());
+        return this.getTitulo().compareToIgnoreCase(libro.getTitulo());
     }
 
     /**

@@ -22,9 +22,17 @@ public class GestionBiblioteca {
         Biblioteca biblioteca = new Biblioteca(nombreBiblio, ciudad);
 
         try (BufferedReader in = new BufferedReader(new FileReader("libros.txt"))) {
+            //in.readLine(); en caso de que tenga titulo y algunos saltso de linea
+            // linea= linea.trim(); en caso de que haya espacios en blanco
             String linea = in.readLine();
+
             String[] libroAux = new String[0];
             while (linea != null) {
+                /*
+                if(linea.isEmpy()){ en el caso que este vacio
+                    continue;
+                }
+                 */
                 libroAux = linea.split(" - ");
                 if (libroAux.length == 5) {
                     int numPages = Integer.parseInt(libroAux[4]);
@@ -35,9 +43,10 @@ public class GestionBiblioteca {
                 linea = in.readLine();
             }
         } catch (IOException e) {
-            System.out.println("Error al leer el archivo.");
+            System.err.println("Error al leer el archivo.");
         }
-
+        
+        biblioteca.getLibros().sort(null);
         biblioteca.mostrar();
         System.out.println("-----------------");
         System.out.println("Busqueda de libro: ");
@@ -47,9 +56,9 @@ public class GestionBiblioteca {
             oos.writeObject(biblioteca);
             System.out.println("Biblioteca guardado con exito en biblioteca.dat.");
         } catch (FileNotFoundException e) {
-            System.out.println("Error al crear el archivo binario.");
+            System.err.println("Error al crear el archivo binario.");
         } catch (IOException e) {
-            System.out.println("Error al escribir el archivo.");
+            System.err.println("Error al escribir el archivo.");
         }
     }//end main
 
