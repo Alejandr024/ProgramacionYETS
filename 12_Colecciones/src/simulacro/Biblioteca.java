@@ -43,6 +43,22 @@ public class Biblioteca implements Serializable {
         }
         return null;//retorna null si no encuentra el nombre en ninguno de los contactos
     }
+    
+    public boolean eliminarLibroPorIsbn(String isbn){
+        //removeIf() elimina elementos que cumplan la condicion
+        
+        /*
+        // Esto es lo que removeIf hace internamente:
+            for (int i = 0; i < libros.size(); i++) {
+                Libro libro = libros.get(i); // ¡Aquí se crea el objeto libro!
+                if (libro.getIsbn().equals(isbn)) {
+                    libros.remove(i);
+                    return true;
+                }
+            }
+        */
+        return libros.removeIf(libro -> libro.getIsbn().equals(isbn));
+    }
 
     /**
      * @return the nombre
