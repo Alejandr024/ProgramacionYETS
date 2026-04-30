@@ -70,6 +70,12 @@ public class ProcesamientoDatosHashSet {
         System.out.println("------------------");
         System.out.println("Elemento ordenados de forma descendente: ");
         System.out.println(ordenInverso);
+
+        /*
+            TreeSet<Integer> numeros = new TreeSet<>();
+             ... añadir números ...
+            NavigableSet<Integer> ordenInverso = numeros.descendingSet();
+         */
     }//end main
 
 }//end class

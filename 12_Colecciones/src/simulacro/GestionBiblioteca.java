@@ -45,7 +45,7 @@ public class GestionBiblioteca {
         } catch (IOException e) {
             System.err.println("Error al leer el archivo.");
         }
-        
+
         biblioteca.getLibros().sort(null);
         biblioteca.mostrar();
         System.out.println("-----------------");
@@ -62,4 +62,55 @@ public class GestionBiblioteca {
         }
     }//end main
 
+    /* Vaina de Samuel
+    
+        // Crear y manipular una pila de enteros
+        Stack<Integer> pila = new Stack<>();
+
+        pila.push(1);
+        // Pila: [1]
+        //pila.push (2);    // Pila: [1, 2]
+        //pila.push (3);    // Pila: [1, 2, 3] (3 es el tope)
+        //    size() : Devuelve el número de elementos presentes
+        //search(Object o): Busca un elemento y devuelve su posición desde el tope (empezando en 1).
+        int elemento = pila.pop(); // Devuelve 3. Pila: [1, 2]
+        int tope = pila.peek();    // Devuelve 2, pero no lo elimina.
+    
+    
+        private static void guardarBiblioteca(String rutaArchivo, Biblioteca biblioteca) {
+            try (BufferedWriter bw = new BufferedWriter(new FileWriter(rutaArchivo))) {
+
+            // Escribir cabecera de la biblioteca
+            bw.write(biblioteca.getNombreBi() + " - " + biblioteca.getCiudad());
+            bw.newLine();
+
+            // Escribir cada libro en el mismo formato que libros.txt
+            for (Libro libro : biblioteca.getListaLibros()) {
+                bw.write(libro.getTitulo() + " - "
+                        + libro.getAutor() + " - "
+                        + libro.getYear() + " - "
+                        + libro.getIsbn() + " - "
+                        + libro.getNumeroPa());
+                bw.newLine();
+            }
+
+            System.out.println("Biblioteca guardada en " + rutaArchivo);
+
+        } catch (Exception e) {
+            System.err.println("Error al guardar: " + e.getMessage());
+        }
+    }
+
+    private static void cargarBiblioteca(String rutaArchivo) {
+        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(rutaArchivo))) {
+            Biblioteca b = (Biblioteca) ois.readObject();
+            System.out.println("\n--- Biblioteca cargada desde .dat ---");
+            b.mostrarLibros();
+        } catch (Exception e) {
+            System.err.println("Error al cargar el archivo binario: " + e.getMessage());
+        }
+    }
+    
+    
+     */
 }//end class
