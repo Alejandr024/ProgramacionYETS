@@ -1,0 +1,3 @@
+Titulo             Director  Estudio             tiempo genero
+The Hangover,,Todd Phillips,,Warner Bros,,100.0,,Comedia
+Superbad,,Greg Mottola,,Columbia Pictures,,113.0,,Comedia

@@ -1,0 +1,11 @@
+Titulo             Director  Estudio             tiempo genero   
+Die Hard,,John McTiernan,,20th Century Fox,,132,,Accion        
+Superbad,,Greg Mottola,,Columbia Pictures,,113,,Comedia        
+The Godfather,,Francis Ford Coppola,,Paramount Pictures,,175,,Drama         
+The Conjuring,,James Wan,,Warner Bros,,112,,Terror            
+Mad Max: Fury Road,,George Miller,,Warner Bros,,120,,Accion       
+The Hangover,,Todd Phillips,,Warner Bros,,100,,Comedia        
+Schindler's List,,Steven Spielberg,,Universal Pictures,,195,,Drama       
+A Nightmare on Elm Street,,Wes Craven,,New Line Cinema,,91,,Terror         
+Gladiator,,Ridley Scott,,Universal Pictures,,155,,Accion        
+Forrest Gump,,Robert Zemeckis,,Paramount Pictures,,142,,Drama        

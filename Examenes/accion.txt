@@ -1,0 +1,4 @@
+Titulo             Director  Estudio             tiempo genero
+Mad Max: Fury Road,,George Miller,,Warner Bros,,120.0,,Accion
+Die Hard,,John McTiernan,,20th Century Fox,,132.0,,Accion
+Gladiator,,Ridley Scott,,Universal Pictures,,155.0,,Accion
