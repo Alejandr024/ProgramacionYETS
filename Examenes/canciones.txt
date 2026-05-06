@@ -1,0 +1,13 @@
+************************************************************
+Titulo             Grupo     Album             tiempo estilo  
+************************************************************
+Bohemian Rhapsody,,Queen,,A Night at the Opera,,5.55,,Rock  
+Billie Jean,,Michael Jackson,,Thriller,,4.54,,Pop  
+Smells Like Teen Spirit,,Nirvana,,Nevermind,,5.01,,Rock  
+Rolling in the Deep,,Adele,,21,,3.48,,Pop  
+Lose Yourself,,Eminem,,8 Miles,,5.26,,Rap  
+Hotel California,,Eagles,,Hotel California,,6.30,,Rock  
+Shape of You,,Ed Sheeran,,Divide,,3.54,,Pop  
+Take Five,,Dave Brubeck Quartet,,Time Out,,5.24,,Jazz  
+Blinding Lights,,The Weeknd,,After Hours,,3.20,,Pop  
+Thunderstruck,,AC/DC,,The Razors Edge,,4.52,,Rock  
