@@ -1,0 +1,38 @@
+@startuml
+
+class Persona {
+    - nombre : VARCHAR(30)
+    - fnac : DATE
+}
+
+class Alumnos {
+    - num : INT
+    - media : DECIMAL(4,2)
+    - curso : VARCHAR(2)
+}
+
+class Curso {
+    - codigo : VARCHAR(2)
+    - nombre : VARCHAR(30)
+    - aula : VARCHAR(10)
+}
+
+class Profesor {
+    - idProfesor : INT
+    - especialidad : VARCHAR(30)
+}
+
+class Asignatura {
+    - idAsignatura : INT
+    - nombre : VARCHAR(30)
+    - horas : INT
+}
+
+Persona <|-- Alumnos
+Persona <|-- Profesor
+
+Curso "1" --> "*" Alumnos : matricula
+Profesor "*" --> "*" Curso : imparte
+Curso "*" --> "*" Asignatura : contiene
+
+@enduml

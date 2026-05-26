@@ -1,7 +1,10 @@
 package instituto;
 
 import java.sql.Date;
+import java.time.LocalDate;
+import java.time.Period;
 import java.util.List;
+import java.util.Scanner;
 
 /**
  *
@@ -9,37 +12,81 @@ import java.util.List;
  */
 public class Main {
 
+    static Scanner sc = new Scanner(System.in);
+    static AlumnoDAO dao = new AlumnoDAO();
+
     public static void main(String[] args) {
+        int opcion;
 
-        AlumnoDAO dao = new AlumnoDAO();
+        do {
+            System.out.println("\n===== MENÚ =====");
+            System.out.println("1. Insertar nuevo alumno");
+            System.out.println("2. Eliminar alumno por número");
+            System.out.println("3. Mostrar alumnos de un curso");
+            System.out.println("4. Salir");
+            System.out.print("Elige una opción: ");
+            opcion = sc.nextInt();
+            sc.nextLine(); // limpiar buffer
 
-        // ?? Leer todos ????????????????????????????????
-        System.out.println("=== TODOS LOS ALUMNOS ===");
-        List<Alumno> alumnos = dao.readAll();
-        for (Alumno a : alumnos) {
-            System.out.println(a);
+            switch (opcion) {
+                case 1 -> insertarAlumno();
+                case 2 -> eliminarAlumno();
+                case 3 -> mostrarAlumnosCurso();
+                case 4 -> System.out.println("¡Hasta luego!");
+                default -> System.out.println("Opción no válida.");
+            }
+
+        } while (opcion != 4);
+    }//end main
+
+    // ?? Opción 1 ??????????????????????????????????????????????????????????????
+    static void insertarAlumno() {
+        System.out.print("Nombre: ");
+        String nombre = sc.nextLine();
+
+        System.out.print("Fecha de nacimiento (YYYY-MM-DD): ");
+        Date fnac = Date.valueOf(sc.nextLine());
+
+        System.out.print("Nota media: ");
+        double media = sc.nextDouble();
+        sc.nextLine();
+
+        System.out.print("Curso: ");
+        String curso = sc.nextLine();
+
+        Alumno a = new Alumno(nombre, fnac, media, curso);
+        dao.create(a);
+    }
+
+    // ?? Opción 2 ??????????????????????????????????????????????????????????????
+    static void eliminarAlumno() {
+        System.out.print("Número del alumno a eliminar: ");
+        int num = sc.nextInt();
+        sc.nextLine();
+        dao.delete(num);
+    }
+
+    // ?? Opción 3 ??????????????????????????????????????????????????????????????
+    static void mostrarAlumnosCurso() {
+        System.out.print("Curso: ");
+        String curso = sc.nextLine();
+
+        List<Alumno> lista = dao.readByCurso(curso);
+
+        if (lista.isEmpty()) {
+            System.out.println("No hay alumnos en ese curso.");
+            return;
         }
 
-        // ?? Leer uno por ID ???????????????????????????
-//        System.out.println("\n=== ALUMNO CON ID 2 ===");
-//        Alumno a = dao.read(2);
-//        System.out.println(a);
+        System.out.println("\nAlumnos del curso " + curso + ":");
+        for (Alumno a : lista) {
+            // Calcular edad
+            LocalDate fnac = a.getfNacimiento().toLocalDate();
+            int edad = Period.between(fnac, LocalDate.now()).getYears();
 
-        // ?? Insertar nuevo ????????????????????????????
-//        System.out.println("\n=== INSERT NUEVO ALUMNO ===");
-//        Alumno nuevo = new Alumno("Eva Espárrago", Date.valueOf("2010-05-20"), 7.0, "1B");
-//        dao.create(nuevo);
-
-        // ?? Actividad U14A1: subir media del 1B ???????
-        System.out.println("\n=== SUBIR MEDIA CURSO 1B ===");
-        dao.incrementarMediaCurso("1B", 1.0);
-
-        // ?? Verificar cambios ?????????????????????????
-        System.out.println("\n=== ALUMNOS TRAS ACTUALIZACIÓN ===");
-        dao.readAll().forEach(System.out::println);//formas mas compacta de recorrer la lista e imprimirlas
-
-        // ?? Eliminar el alumno recién insertado ???????
-//        System.out.println("\n=== DELETE ALUMNO ID 5 ===");
-//        dao.delete(5);
+            System.out.println("- " + a.getNombre() +
+                               " | Nacimiento: " + a.getfNacimiento() +
+                               " | Edad: " + edad + " años");
+        }
     }
-}
+}//end class

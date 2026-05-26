@@ -1,0 +1,26 @@
+@startuml
+left to right direction
+
+actor "Personal Administrativo" as admin #Orange
+actor "Profesor / Tutor" as prof #Red
+actor "Director / Coordinador" as dir #Blue
+actor "Organizador de Eventos" as org #Yellow
+
+package "Sistema de Gestión - ERP Instituto" {
+    usecase "CU1: Consulta de Ficha\nIndividual del Alumno" as cu1 #FFE4E1
+    usecase "CU2: Generación de Lista\nde Clase por Curso" as cu2 #LightYellow
+    usecase "CU3: Emisión de Diplomas\nde Excelencia Académica" as cu3 #Green
+    usecase "CU4: Filtro de Edad para\nAutorización de Excursiones" as cu4 #LightBlue
+}
+
+' Relaciones de los actores con los Casos de Uso
+admin --> cu1
+admin --> cu4
+
+prof --> cu1
+prof --> cu2
+
+dir --> cu3
+
+org --> cu4
+@enduml
